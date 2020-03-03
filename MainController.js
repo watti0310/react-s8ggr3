@@ -1,6 +1,10 @@
 import React from 'react';
-import * as Todo from './Components/Todo/';
+import { Provider } from 'react-redux';
+import ToDo from './Components/ToDo/';
+import configureStore from "./state/store";
 
+const reduxStore = configureStore();
+console.log(reduxStore.getState());
 let items = [
   {
     text: "aaaaaa",
@@ -12,7 +16,9 @@ let items = [
 export default class MainController extends React.Component {
   render() {
     return (
-      <Todo items={items} />
+      <Provider store={reduxStore}>
+        <ToDo items={items} />
+      </Provider>
     );
   }
 }

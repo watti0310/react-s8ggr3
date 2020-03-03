@@ -1,14 +1,13 @@
 import React from 'react';
 
-export default class Todo extends React.Component {
+export default class ToDo extends React.Component {
   render() {
     return (
-      //const listItems = "this.props.items.map(item =><li>{item.text}</li>)";
       <div>
         <input type="text"></input>
         <button>add</button>
         <ul>
-          //{listItems}
+          {this.props.items.map((item,index) =><li key={index}>{item.text}</li>)}
         </ul>
       </div>
     );
